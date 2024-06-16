@@ -30,6 +30,7 @@
         }
         .container {
             padding: 20px;
+            display: flex;
         }
         .hero {
             background-color: #4B0082;
@@ -39,7 +40,7 @@
         }
         .hero img {
             width: 200px;
-            height: auto;
+            height: 30px;
         }
         footer {
             background-color: #333;
@@ -51,8 +52,46 @@
             bottom: 0;
         }
         .logo {
-            height: 50px;
+            height: 45px;
         }
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
     </style>
 </head>
 <body>
@@ -74,7 +113,50 @@
         <h1>Welcome to SRK Restaurant</h1>
         <p>Where we bring the vibrant flavors of South India to your table. Experience the rich culinary heritage of this region with the freshest ingredients and traditional recipes passed down through generations. Join us for an unforgettable dining experience.</p>
     </div>
-
+    <body>
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Your name" required><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Your email" required><br>
+            
+            <label for="phone">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" placeholder="Your message" required></textarea><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    
+        <!-- Firebase JS SDKs -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+        
+        <!-- Firebase configuration and initialization -->
+        <script>
+            // Add your Firebase configuration details here
+            const firebaseConfig = {
+                apiKey: "AIzaSyBMN0bssftqUkwrbcbiyDT5x-bCjtWEumo",
+                authDomain: "srk-restaurant.firebaseapp.com",
+                databaseURL: "https://srk-restaurant-default-rtdb.firebaseio.com",
+                projectId: "srk-restaurant",
+                storageBucket: "srk-restaurant.appspot.com",
+                messagingSenderId: "485355502987",
+                appId: "1:485355502987:web:95e7e157809e6bb7ae838e"
+            };
+    
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+    
+            // Reference to the Firebase database path
+            const SRKRestaurantDB = firebase.database().ref('SRKRestaurant');
+        </script>
+    
+        <script src="scripts.js"></script>
+    </body>
     <footer>
         <p>&copy; 2024 SRK Restaurant. All rights reserved.</p>
     </footer>
